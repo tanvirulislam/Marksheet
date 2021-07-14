@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <title>Grade System</title>
+</head>
+
+<body>
+
+    <div class="container">
+        <br>
+
+        <div class="row">
+            <div class="col-md-4"></div>
+
+            <div class="col-md-4">
+                <div class="card"
+                    style="box-shadow: 0px 0px 14px 0px rgb(0 0 0 / 13%); background: linear-gradient(45deg, red, blue);">
+                    <div class="card-header">
+
+                        <marquee behavior="scroll" direction="left"><b style="color: white">Marksheet</b></marquee>
+                    </div>
+                    <div class="card-body">
+
+                        <div class="input-group mb-3">
+                            <span class="input-group-text">Bangla</span>
+                            <input type="number" id="bangla" class="form-control" placeholder="Enter your marks"
+                                aria-label="Username" aria-describedby="basic-addon1">
+                        </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text">English</span>
+                            <input type="number" id="english" class="form-control" placeholder="Enter your marks"
+                                aria-label="Username" aria-describedby="basic-addon1">
+                        </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text">Math</span>
+                            <input type="number" id="math" class="form-control" placeholder="Enter your marks"
+                                aria-label="Username" aria-describedby="basic-addon1">
+                        </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text">Social</span>
+                            <input type="number" id="social" class="form-control" placeholder="Enter your marks"
+                                aria-label="Username" aria-describedby="basic-addon1">
+                        </div>
+
+                        <input type="button" class="btn btn-info" name="" value="Submit" onclick="calcy()">
+
+                        <br>
+                        <br>
+
+                        <p id="showdata" style="color:white;">Best of luck!</p> 
+
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col-md-4"></div>
+
+        </div>
+    </div>
+    <script>
+        let calcy = () => {
+            let bangla = document.getElementById('bangla').value;
+            let english = document.getElementById('english').value;
+            let math = document.getElementById('math').value;
+            let social = document.getElementById('social').value;
+            let grade = "";
+
+            // console.log(bangla);
+
+            let total = parseInt(bangla) + parseInt(english) + parseInt(math) + parseInt(social)
+            let parc = (total / 400) * 100;
+            // alert(parc);
+            if (parc <= 100 && parc >= 80) {
+                grade = 'A';
+            } else if (parc <= 79 && parc >= 60) {
+                grade = 'B';
+            } else {
+                grade = 'F';
+            }
+
+            document.getElementById('showdata').innerHTML = ` Out of 400 your total marks ${total} <br>Your percentage is : ${parc} <br> your grade is : ${grade}`
+        }
+
+
+
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>
