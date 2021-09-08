@@ -81,7 +81,7 @@
             // console.log(bangla);
 
             let total = parseInt(bangla) + parseInt(english) + parseInt(math) + parseInt(social)
-            let parc = (total / 400) * 100;
+            let parc = Math.round((total / 400) * 100);
             // alert(parc);
             if (parc <= 100 && parc >= 80) {
                 grade = 'A';
@@ -91,7 +91,7 @@
                 grade = 'F';
             }
 
-            document.getElementById('showdata').innerHTML = ` Out of 400 your total marks ${total} <br>Your percentage is : Math.round($parc) <br> your grade is : ${grade}`
+            document.getElementById('showdata').innerHTML = ` Out of 400 your total marks ${total} <br>Your percentage is : ${parc} <br> your grade is : ${grade}`
         }
 
 
